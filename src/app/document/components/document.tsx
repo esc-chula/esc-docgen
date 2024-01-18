@@ -1,5 +1,6 @@
 import styles from "../style/styles.module.css";
 import clsx from "clsx";
+import { convertToThaiDate } from "../utils/date";
 
 const data = {
   projectId: "8002",
@@ -13,9 +14,10 @@ const data = {
     "สร้างความสัมพันธ์อันดีและความสามัคคีระหว่างนิสิตคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
   activity: "จัดกิจกรรม Blood Day",
   toFooter: "รองคณบดี (ศ. ดร.เกษม ชูจารุกูล)",
-  //
   headOfVenueStudent: "กฤติน สุวรรณทัต",
   headOfVenueStaff: "วัชรพงษ์ ทองคำสุจริต",
+  requestDate: new Date("2023-08-11"),
+  detailType: "สถานที่",
 };
 
 export default function Document() {
@@ -130,9 +132,9 @@ export default function Document() {
       </div>
 
       <div className={clsx(styles["page"], styles["details-page"])}>
-        <p className={styles["details"]}>รายละเอียดการขอใช้{"สถานที่"}</p>
+        <p className={styles["details"]}>รายละเอียดการขอใช้{data.detailType}</p>
         <p className={styles["event-date"]}>
-          วัน{"ศุกร์ที่ 11 สิงหาคม พ.ศ. 2566"}
+          {convertToThaiDate(data.requestDate)}
         </p>
 
         <table className={styles["detail-table"]}>
