@@ -14,10 +14,27 @@ const data = {
     "สร้างความสัมพันธ์อันดีและความสามัคคีระหว่างนิสิตคณะวิศวกรรมศาสตร์ จุฬาลงกรณ์มหาวิทยาลัย",
   activity: "จัดกิจกรรม Blood Day",
   toFooter: "รองคณบดี (ศ. ดร.เกษม ชูจารุกูล)",
-  headOfVenueStudent: "กฤติน สุวรรณทัต",
   headOfVenueStaff: "วัชรพงษ์ ทองคำสุจริต",
   requestDate: new Date("2023-08-11"),
-  detailType: "สถานที่",
+  requestDetailType: "สถานที่",
+  requestTimeFrame: "09.00 น. - 16.00 น.",
+  requestLocations: [
+    "อาคาร 1 ชั้น 3 ห้อง 304",
+    "อาคาร 3 ชั้น 3 ห้อง 301, 304, 306, 309, 315 และ 318",
+    "อาคาร 3 ชั้น 4 ห้อง 401, 404, 409, 415 และ 418",
+    "อาคารวิศวฯ 100 ปี ชั้น 5 ห้อง 501, 502, 504 และ 505",
+    "โถงอาคารเจริญวิศวกรรม ชั้น 2",
+  ],
+  requestItems: ["ไมโครโฟน", "คอมพิวเตอร์", "โปรเจกเตอร์", "เคร่ืองปรับอากาศ"],
+  requestPurposes: ["ขออนุญาตใช์เสียง", "ขออนุญาตเคลื่อนย้ายโต๊ะและเก้าอี้"],
+  responsibleStudentDuring: {
+    name: "กฤติน สุวรรณทัต",
+    tel: "081-234-5678",
+  },
+  responsibleStudentVenue: {
+    name: "กฤติน สุวรรณทัต",
+    tel: "081-234-5678",
+  },
 };
 
 export default function Document() {
@@ -116,7 +133,7 @@ export default function Document() {
 
           <div className={styles["footer-signature"]}>
             <div className={styles["footer-signature-box"]}>
-              <p>({data.headOfVenueStudent})</p>
+              <p>({data.responsibleStudentVenue.name})</p>
               <p>รองประธานโครงการฝ่ายสถานที่</p>
             </div>
 
@@ -132,7 +149,9 @@ export default function Document() {
       </div>
 
       <div className={clsx(styles["page"], styles["details-page"])}>
-        <p className={styles["details"]}>รายละเอียดการขอใช้{data.detailType}</p>
+        <p className={styles["details"]}>
+          รายละเอียดการขอใช้{data.requestDetailType}
+        </p>
         <p className={styles["event-date"]}>
           {convertToThaiDate(data.requestDate)}
         </p>
@@ -149,29 +168,27 @@ export default function Document() {
           </thead>
           <tbody>
             <tr>
-              <td>09.00 น. - 16.00 น.</td>
+              <td>{data.requestTimeFrame}</td>
               <td>
                 <ul>
-                  <li>อาคาร 1 ชั้น 3 ห้อง 304</li>
-                  <li>อาคาร 3 ชั้น 3 ห้อง 301, 304, 306, 309, 315 และ 318</li>
-                  <li>อาคาร 3 ชั้น 4 ห้อง 401, 404, 409, 415 และ 418</li>
-                  <li>อาคารวิศวฯ 100 ปี ชั้น 5 ห้อง 501, 502, 504 และ 505</li>
-                  <li>โถงอาคารเจริญวิศวกรรม ชั้น 2</li>
+                  {data.requestLocations.map((location, i) => (
+                    <li key={i}>{location}</li>
+                  ))}
                 </ul>
               </td>
               <td>
                 <ul>
-                  <li>ไมโครโฟน</li>
-                  <li>คอมพิวเตอร์</li>
-                  <li>โปรเจกเตอร์</li>
-                  <li>เคร่ืองปรับอากาศ</li>
+                  {data.requestItems.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
                 </ul>
               </td>
               <td>จัดกิจกรรม Blood Day</td>
               <td>
                 <ul>
-                  <li>ขออนุญาตใช์เสียง</li>
-                  <li>ขออนุญาตเคลื่อนย้ายโต๊ะและเก้าอี้</li>
+                  {data.requestPurposes.map((purpose, i) => (
+                    <li key={i}>{purpose}</li>
+                  ))}
                 </ul>
               </td>
             </tr>
@@ -184,11 +201,17 @@ export default function Document() {
           <tbody>
             <tr>
               <td>นิสิตผู้รับผิดชอบระหว่างและหลังการใช้งาน</td>
-              <td>กฤติน สุวรรณทัต &emsp; โทร. 081-234-5678</td>
+              <td>
+                {data.responsibleStudentDuring.name} &emsp; โทร.
+                {data.responsibleStudentDuring.tel}
+              </td>
             </tr>
             <tr>
               <td>นิสิตผู้รับผิดชอบฝ่ายสถานที่ในโครงการ</td>
-              <td>กฤติน สุวรรณทัต &emsp; โทร. 081-234-5678</td>
+              <td>
+                {data.responsibleStudentVenue.name} &emsp; โทร.{" "}
+                {data.responsibleStudentVenue.tel}
+              </td>
             </tr>
           </tbody>
         </table>
