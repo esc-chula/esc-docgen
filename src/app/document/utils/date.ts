@@ -1,5 +1,8 @@
 // input Date and returns a thai date of the format วันพฤหัสบดีที่ 10 สิงหาคม พ.ศ. 2566
-export function convertToThaiDate(date: Date): string {
+export function convertToThaiDate(
+  date: Date,
+  mode: "document" | "descriptive",
+): string {
   const thaiDays = [
     "อาทิตย์",
     "จันทร์",
@@ -31,5 +34,10 @@ export function convertToThaiDate(date: Date): string {
   const month = thaiMonths[date.getMonth()];
   const year = date.getFullYear() + thaiYearOffset;
 
-  return `วัน${day}ที่ ${date.getDate()} ${month} พ.ศ. ${year}`;
+  switch (mode) {
+    case "document":
+      return `วันที่ ${date.getDate()} ${month} ${year}`;
+    case "descriptive":
+      return `วัน${day}ที่ ${date.getDate()} ${month} พ.ศ. ${year}`;
+  }
 }

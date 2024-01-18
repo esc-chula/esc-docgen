@@ -6,7 +6,7 @@ const data = {
   projectId: "8002",
   documentId: "0014",
   from: "ฝ่ายกิจการภายใน",
-  date: "25 สิงหาคม 2566",
+  documentDate: new Date("2023-08-25"),
   to: "รองคณบดี (รศ. ดร.สรรเพชญ ชื้อนิธิไพศาล)",
   itemToRequest: "สถานที่และอุปกรณ์",
   projectName: "รับน้องหนึ่งเดือน ปีการศึกษา 2566",
@@ -15,7 +15,7 @@ const data = {
   activity: "จัดกิจกรรม Blood Day",
   toFooter: "รองคณบดี (ศ. ดร.เกษม ชูจารุกูล)",
   headOfVenueStaff: "วัชรพงษ์ ทองคำสุจริต",
-  requestDate: new Date("2023-08-11"),
+  requestDate: new Date("2023-09-02"),
   requestDetailType: "สถานที่",
   requestTimeFrame: "09.00 น. - 16.00 น.",
   requestLocations: [
@@ -58,7 +58,7 @@ export default function Document() {
           <br />
 
           <div className={styles["heading-datetext"]}>
-            <p>วันที่ {data.date}</p>
+            <p>{convertToThaiDate(data.documentDate, "document")}</p>
           </div>
 
           <div className="">
@@ -153,7 +153,7 @@ export default function Document() {
           รายละเอียดการขอใช้{data.requestDetailType}
         </p>
         <p className={styles["event-date"]}>
-          {convertToThaiDate(data.requestDate)}
+          {convertToThaiDate(data.requestDate, "descriptive")}
         </p>
 
         <table className={styles["detail-table"]}>
