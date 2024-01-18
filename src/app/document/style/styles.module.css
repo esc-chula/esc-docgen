@@ -1,0 +1,134 @@
+@media screen {
+  .page {
+    font-size: 14px;
+    font-family: "TH SarabunPSK";
+  }
+}
+
+@media print {
+  .header {
+    width: 100%;
+    height: auto;
+  }
+
+  .page {
+    margin-top: 0.5cm;
+    margin-bottom: 0.75cm;
+    margin-left: 2.54cm;
+    margin-right: 2.54cm;
+    font-size: 14pt;
+    font-family: "TH SarabunPSK";
+    font-weight: 400;
+    line-height: 1.2;
+    page-break-after: always;
+  }
+
+  .heading {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .heading-datetext {
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-left: 0.5in;
+  }
+
+  .body-text {
+    text-indent: 1in;
+    text-align: justify;
+  }
+
+  .president-signature {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0.5in;
+  }
+
+  .vicedean-address {
+    margin-left: 0.5in;
+  }
+
+  .sa-dean-signature {
+    position: relative;
+    text-align: center;
+    margin-left: 0.5in;
+    display: flex;
+  }
+
+  .sa-dean-signature-box {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .horizontal-line {
+    border: 1px solid #333333;
+  }
+
+  .footer-signature {
+    position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5in;
+  }
+
+  .footer-signature-box {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  div.details-page {
+    margin-top: 2.54cm;
+    page-break-after: auto;
+  }
+
+  .event-date {
+    font-weight: 700;
+  }
+
+  .details {
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  .detail-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1pt solid black;
+    vertical-align: text-top;
+    margin-top: 8pt;
+  }
+
+  .detail-table th,
+  .detail-table td {
+    border: 1pt solid black;
+  }
+
+  .detail-table th {
+    text-align: center;
+    padding: 2pt;
+  }
+
+  .detail-table td {
+    text-align: left;
+    padding: 4pt;
+  }
+
+  .detail-table ul {
+    list-style-type: "- ";
+    list-style-position: inside;
+  }
+}
