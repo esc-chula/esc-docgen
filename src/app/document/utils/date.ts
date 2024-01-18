@@ -1,8 +1,13 @@
-// input Date and returns a thai date of the format วันพฤหัสบดีที่ 10 สิงหาคม พ.ศ. 2566
+export function parseDateString(dateInput: string): Date {
+  return new Date(dateInput);
+}
+
 export function convertToThaiDate(
-  date: Date,
+  dateInput: string,
   mode: "document" | "descriptive",
 ): string {
+  const date = parseDateString(dateInput);
+
   const thaiDays = [
     "อาทิตย์",
     "จันทร์",
