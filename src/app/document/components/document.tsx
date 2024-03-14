@@ -7,9 +7,9 @@ export default function Document() {
   return (
     <main>
       <div>
-        <img alt="ESC" src="/assets/header.png" className={styles["header"]} />
-        <div className={styles["page"]}>
-          <div className={styles["heading"]}>
+        <img alt="ESC" src="/assets/header.png" className={styles.header} />
+        <div className={styles.page}>
+          <div className={styles.heading}>
             <p className={styles["heading-documentId"]}>
               <b>ที่</b> กวศ.{data.project.id}-{data.document.id} /{" "}
               {data.document.term}
@@ -115,8 +115,8 @@ export default function Document() {
         </div>
       </div>
 
-      <div className={clsx(styles["page"], styles["details-page"])}>
-        <p className={styles["details"]}>
+      <div className={clsx(styles.page, styles["details-page"])}>
+        <p className={styles.details}>
           รายละเอียดการขอใช้{data.request.itemType}
         </p>
         <p className={styles["event-date"]}>
