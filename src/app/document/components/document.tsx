@@ -1,9 +1,16 @@
+"use client";
 import styles from "../style/styles.module.css";
 import clsx from "clsx";
 import { convertToThaiDate } from "../utils/date";
-import data from "@/docs/blood-day.json";
+// import data from "@/data/blood-day.json";
+import { useDocumentData } from "../utils/useDocumentData";
 
 export default function Document() {
+  const { data, error, isLoading } = useDocumentData("blood-day");
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error ?? !data) return <div>There was an Error</div>;
+
   return (
     <main>
       <div>
@@ -31,10 +38,10 @@ export default function Document() {
           <div className="">
             <br />
             <p>
-              <b>เรื่อง</b> ขออนุญาตใช้{data.request.itemType}
+              <b>เรื่อง</b> ขออนุญาตใช้{data.request.item_type}
             </p>
             <p>
-              <b>เรียน</b> รองคณบดี ({data.staff.studentAffairsDean})
+              <b>เรียน</b> รองคณบดี ({data.staff.student_affairs_dean})
             </p>
             <p>
               <b>สิ่งที่แนบมา</b> รายละเอียดการใช้เลือกรายการ
@@ -62,7 +69,7 @@ export default function Document() {
           <br />
 
           <div className={styles["president-signature"]}>
-            <p>({data.staff.ESCPresdient})</p>
+            <p>({data.staff.esc_president})</p>
             <p>หัวหน้านิสิต</p>
           </div>
 
@@ -71,7 +78,7 @@ export default function Document() {
 
           <div className="">
             <p>
-              <b>เรียน</b> รองคณบดี ({data.staff.academicDean})
+              <b>เรียน</b> รองคณบดี ({data.staff.academic_dean})
             </p>
             <p className={styles["vicedean-address"]}>
               - เพื่อโปรดพิจารณาอนุมัติ
@@ -84,7 +91,7 @@ export default function Document() {
 
           <div className={styles["sa-dean-signature"]}>
             <div className={styles["sa-dean-signature-box"]}>
-              <p>({data.staff.studentAffairsDean})</p>
+              <p>({data.staff.student_affairs_dean})</p>
               <p>รองคณบดี</p>
             </div>
           </div>
@@ -100,12 +107,12 @@ export default function Document() {
 
           <div className={styles["footer-signature"]}>
             <div className={styles["footer-signature-box"]}>
-              <p>({data.responsibleStudent.venue.name})</p>
+              <p>({data.responsible_student.venue.name})</p>
               <p>รองประธานโครงการฝ่ายสถานที่</p>
             </div>
 
             <div className={styles["footer-signature-box"]}>
-              <p>({data.staff.headOfVenue})</p>
+              <p>({data.staff.head_of_venue})</p>
               <p>หัวหน้างานฝ่ายสถานที่และกายภาพ</p>
             </div>
           </div>
@@ -117,7 +124,7 @@ export default function Document() {
 
       <div className={clsx(styles.page, styles["details-page"])}>
         <p className={styles.details}>
-          รายละเอียดการขอใช้{data.request.itemType}
+          รายละเอียดการขอใช้{data.request.item_type}
         </p>
         <p className={styles["event-date"]}>
           {convertToThaiDate(data.request.date, "descriptive")}
@@ -135,7 +142,7 @@ export default function Document() {
           </thead>
           <tbody>
             <tr>
-              <td>{data.request.timeFrame}</td>
+              <td>{data.request.time_frame}</td>
               <td>
                 <ul>
                   {data.request.locations.map((location, i) => (
@@ -169,15 +176,15 @@ export default function Document() {
             <tr>
               <td>นิสิตผู้รับผิดชอบระหว่างและหลังการใช้งาน</td>
               <td>
-                {data.responsibleStudent.during.name} &emsp; โทร.
-                {data.responsibleStudent.during.tel}
+                {data.responsible_student.during.name} &emsp; โทร.
+                {data.responsible_student.during.tel}
               </td>
             </tr>
             <tr>
               <td>นิสิตผู้รับผิดชอบฝ่ายสถานที่ในโครงการ</td>
               <td>
-                {data.responsibleStudent.venue.name} &emsp; โทร.{" "}
-                {data.responsibleStudent.venue.tel}
+                {data.responsible_student.venue.name} &emsp; โทร.{" "}
+                {data.responsible_student.venue.tel}
               </td>
             </tr>
           </tbody>
