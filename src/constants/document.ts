@@ -1,4 +1,4 @@
-import type { DocumentData } from "./types";
+import type { DocumentData } from "@/components/document";
 
 export const defaultDocumentData: DocumentData = {
   document: {

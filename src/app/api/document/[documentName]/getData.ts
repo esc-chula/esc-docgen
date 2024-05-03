@@ -1,5 +1,5 @@
 import toml from "toml";
-import type { DocumentData } from "../../../document/utils/types";
+import type { DocumentData } from "@/components/document";
 import * as fs from "fs/promises";
 import path from "path";
 

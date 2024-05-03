@@ -1,9 +1,9 @@
 "use client";
-import styles from "../style/styles.module.css";
+import styles from "./document.module.css";
 import clsx from "clsx";
-import { convertToThaiDate } from "../utils/date";
+import { convertToThaiDate } from "@/utils/date";
 // import data from "@/data/blood-day.json";
-import { useDocumentData } from "../utils/useDocumentData";
+import { useDocumentData } from "./useDocumentData";
 
 export default function Document() {
   const { data, error, isLoading } = useDocumentData("blood-day");

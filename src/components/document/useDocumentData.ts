@@ -1,6 +1,6 @@
 "use client";
 import useSWR, { type SWRResponse } from "swr";
-import type { DocumentData } from "./types";
+import type { DocumentData } from "@/components/document";
 
 export function useDocumentData(
   fileName: string,

@@ -1,5 +1,4 @@
-import Document from "./components/document";
-import Menu from "./components/menu";
+import { Menu, Document } from "@/components/document";
 
 export default function Vanilla() {
   return (
