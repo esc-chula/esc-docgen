@@ -1,28 +1,43 @@
-# Create T3 App
+# ESC Docgen
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+Document generator tool to facilitate internal document process in ESC organization (especially for secretary).
 
-## What's next? How do I make an app with this?
+![cover](docs/cover.png)
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Features
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+- [x] Generate document from template
+- [x] Generate document from .toml file
+- [ ] Fetch data from a database
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+## Document Types
 
-## Learn More
+- [x] (1) Location Permit
+- [ ] (0) Project Proposal
+- [ ] (3) Sponsorship Request
+- [ ] (6) Event Report
+- [ ] (7) Financial Report
+- [ ] (8) Money Request
+- [ ] (AT) Attendance List
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+## Setup
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+Make sure you have [Node.js](https://nodejs.org/en/) and [pnpm](https://pnpm.io/) installed.
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+1. Clone this repository
 
-## How do I deploy this?
+```bash
+git clone https://github.com/esc-chula/esc-docgen.git
+```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+2. Install dependencies
+
+```bash
+pnpm install
+```
+
+3. Run the app
+
+```bash
+pnpm start
+```
