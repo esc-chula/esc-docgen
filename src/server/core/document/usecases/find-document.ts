@@ -1,9 +1,14 @@
 import { DocumentNotFoundError } from "@/server/infrastructure/exceptions/document";
 import type { FindDocumentPort } from "../port/input/find-document.port";
 import type { DocumentRepositoryPort } from "../port/output/document-repository.port";
+import { inject, injectable } from "tsyringe";
 
+@injectable()
 export class FindDocumentUseCase implements FindDocumentPort {
-  constructor(private readonly documentRepository: DocumentRepositoryPort) {
+  constructor(
+    @inject("DocumentRepository")
+    private readonly documentRepository: DocumentRepositoryPort,
+  ) {
     this.documentRepository = documentRepository;
   }
 

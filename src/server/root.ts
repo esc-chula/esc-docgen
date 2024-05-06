@@ -1,6 +1,6 @@
-import { postRouter } from "@/server/adapter/input/post.controller";
 import { createTRPCRouter } from "@/server/infrastructure/trpc";
-import { documentRouter } from "./adapter/input/document.controller";
+import { postRouter } from "@/server/infrastructure/ui/routers/post.router";
+import { documentRouter } from "@/server/infrastructure/ui/routers/document.router";
 
 /**
  * This is the primary router for your server.
