@@ -1,4 +1,4 @@
-import { DocumentNotFoundError } from "@/server/infrastructure/exceptions/document";
+import { DocumentNotFoundError } from "@/server/lib/exceptions/document";
 import type { FindDocumentPort } from "../port/input/find-document.port";
 import type { DocumentRepositoryPort } from "../port/output/document-repository.port";
 import { inject, injectable } from "tsyringe";
