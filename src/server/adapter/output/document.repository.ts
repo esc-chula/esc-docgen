@@ -1,8 +1,8 @@
-import type { DocumentRepositoryPort } from "@/server/core/document/port/output/document-repository.port";
 import {
+  type DocumentRepositoryPort,
   type DocumentData,
   DocumentDataModel,
-} from "@/server/core/document/domain/document.model";
+} from "@/server/core/document";
 import { parseToml } from "@/utils/toml";
 import { readFile } from "fs/promises";
 import path from "path";

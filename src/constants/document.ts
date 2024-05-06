@@ -1,4 +1,4 @@
-import type { DocumentData } from "@/server/core/document/domain/document.model";
+import type { DocumentData } from "@/server/core/document";
 
 export const defaultDocumentData: DocumentData = {
   heading: {

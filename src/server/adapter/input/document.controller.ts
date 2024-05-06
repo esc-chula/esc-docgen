@@ -4,10 +4,11 @@ import {
   createTRPCRouter,
   publicProcedure,
 } from "@/server/infrastructure/trpc";
-import type { FindDocumentPort } from "@/server/core/document/port/input/find-document.port";
-import { FindDocumentUseCase } from "@/server/core/document/usecases/find-document";
-import { DocumentRepository } from "../output/document.repository";
 import type { TRPCController } from "@/server/infrastructure/trpc/controller.interface";
+import type { FindDocumentPort } from "@/server/core/document/port/input/find-document.port";
+
+import { DocumentRepository } from "../output/document.repository";
+import { FindDocumentUseCase } from "@/server/core/document";
 
 export class DocumentController implements TRPCController {
   documentFind: FindDocumentPort;
@@ -33,6 +34,7 @@ export class DocumentController implements TRPCController {
 
 const documentRepository = new DocumentRepository();
 const findDocumentUseCase = new FindDocumentUseCase(documentRepository);
+
 const documentController = new DocumentController(findDocumentUseCase);
 
 export const documentRouter = documentController.router();
