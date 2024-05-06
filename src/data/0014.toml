@@ -1,4 +1,4 @@
-[document]
+[heading]
 id = "0014"
 date = "2023-08-25"
 term = "2566"
@@ -7,7 +7,7 @@ term = "2566"
 student_affairs_dean = "รศ. ดร.สรรเพชญ ชื้อนิธิไพศาล"
 academic_dean = "ศ. ดร.เกษม ชูจารุกูล"
 head_of_venue = "วัชรพงษ์ ทองคำสุจริต"
-esc_presdient = "กันตพงศ์ โหราเรือง"
+esc_president = "กันตพงศ์ โหราเรือง"
 
 [project]
 id = "8002"

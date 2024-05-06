@@ -1,7 +1,7 @@
-import type { DocumentData } from "@/components/document";
+import type { DocumentData } from "@/server/core/document/domain/document.model";
 
 export const defaultDocumentData: DocumentData = {
-  document: {
+  heading: {
     id: "0014",
     date: "2023-08-25",
     term: "2566",

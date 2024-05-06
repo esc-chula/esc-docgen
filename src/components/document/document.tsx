@@ -1,25 +1,31 @@
-"use client";
 import styles from "./document.module.css";
 import clsx from "clsx";
 import { convertToThaiDate } from "@/utils/date";
-// import data from "@/data/blood-day.json";
-import { useDocumentData } from "./useDocumentData";
+import { api } from "@/trpc/server";
+import Image from "next/image";
 
-export default function Document() {
-  const { data, error, isLoading } = useDocumentData("blood-day");
+export default async function Document() {
+  const data = await api.document.getDocument.query({ id: "0014" });
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error ?? !data) return <div>There was an Error</div>;
+  if (!data) return null;
 
   return (
     <main>
       <div>
-        <img alt="ESC" src="/assets/header.png" className={styles.header} />
+        <div className={styles.header}>
+          <Image
+            alt="ESC"
+            src="/assets/header.png"
+            width={1239}
+            height={235}
+            className="h-auto w-full"
+          />
+        </div>
         <div className={styles.page}>
           <div className={styles.heading}>
             <p className={styles["heading-documentId"]}>
-              <b>ที่</b> กวศ.{data.project.id}-{data.document.id} /{" "}
-              {data.document.term}
+              <b>ที่</b> กวศ.{data.project.id}-{data.heading.id} /{" "}
+              {data.heading.term}
             </p>
 
             <div className={styles["heading-esc"]}>
@@ -32,7 +38,7 @@ export default function Document() {
           <br />
 
           <div className={styles["heading-datetext"]}>
-            <p>{convertToThaiDate(data.document.date, "document")}</p>
+            <p>{convertToThaiDate(data.heading.date, "document")}</p>
           </div>
 
           <div className="">
