@@ -7,8 +7,9 @@ import {
 import type { FindDocumentPort } from "@/server/core/document/port/input/find-document.port";
 import { FindDocumentUseCase } from "@/server/core/document/usecases/find-document";
 import { DocumentRepository } from "../output/document.repository";
+import type { TRPCController } from "@/server/infrastructure/trpc/controller.interface";
 
-export class DocumentController {
+export class DocumentController implements TRPCController {
   documentFind: FindDocumentPort;
 
   constructor(documentFind: FindDocumentPort) {
@@ -18,16 +19,20 @@ export class DocumentController {
   async getDocument(id: string) {
     return this.documentFind.findById(id);
   }
+
+  router() {
+    return createTRPCRouter({
+      getDocument: publicProcedure
+        .input(z.object({ id: z.string() }))
+        .query(({ input }) => {
+          return this.getDocument(input.id);
+        }),
+    });
+  }
 }
 
 const documentRepository = new DocumentRepository();
 const findDocumentUseCase = new FindDocumentUseCase(documentRepository);
 const documentController = new DocumentController(findDocumentUseCase);
 
-export const documentRouter = createTRPCRouter({
-  getDocument: publicProcedure
-    .input(z.object({ id: z.string() }))
-    .query(({ input }) => {
-      return documentController.getDocument(input.id);
-    }),
-});
+export const documentRouter = documentController.router();

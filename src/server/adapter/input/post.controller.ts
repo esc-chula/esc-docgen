@@ -33,3 +33,28 @@ export const postRouter = createTRPCRouter({
     return post;
   }),
 });
+
+/*
+export class PostController extends TRPCController {
+    @TRPCProcedure()
+    async hello(input: z.infer<typeof z.object({ text: z.string() })>) {
+      return {
+        greeting: `Hello ${input.text}`,
+      };
+    }
+  
+    @TRPCProcedure()
+    async create(input: z.infer<typeof z.object({ name: z.string().min(1) })>) {
+      // simulate a slow db call
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+  
+      post = { id: post.id + 1, name: input.name };
+      return post;
+    }
+  
+    @TRPCProcedure()
+    async getLatest() {
+      return post;
+    }
+  }
+*/
