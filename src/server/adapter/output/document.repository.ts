@@ -6,7 +6,6 @@ import {
 import { parseToml } from "@/utils/toml";
 import { readFile } from "fs/promises";
 import path from "path";
-
 export class DocumentRepository implements DocumentRepositoryPort {
   async findById(id: string): Promise<DocumentData | null> {
     try {

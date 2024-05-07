@@ -5,7 +5,7 @@ import { api } from "@/trpc/server";
 import Image from "next/image";
 
 export default async function Document() {
-  const data = await api.document.getDocument.query({ id: "0014" });
+  const data = await api.document.getDocument.query({ id: "0015" });
 
   if (!data) return null;
 
