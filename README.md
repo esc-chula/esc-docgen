@@ -1,4 +1,4 @@
-# ESC Docgen
+# ESC Project Tracker
 
 Document generator tool to facilitate internal document process in ESC organization (especially for secretary).
 
@@ -27,7 +27,7 @@ Make sure you have [Node.js](https://nodejs.org/en/) and [pnpm](https://pnpm.io/
 1. Clone this repository
 
 ```bash
-git clone https://github.com/esc-chula/esc-docgen.git
+git clone https://github.com/esc-chula/esc-project-tracker.git
 ```
 
 2. Install dependencies
